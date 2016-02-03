@@ -7,6 +7,7 @@ package com.common.controller;
 
 import com.common.DAO.Impl.departmentDaoImpl;
 import com.common.DAO.Impl.employerDaoImpl;
+import com.common.DAO.Impl.projectDaoImpl;
 import com.common.model.Department;
 import com.common.model.Employer;
 import java.util.List;
@@ -30,6 +31,10 @@ public class controllerEmployer {
     @Qualifier("employer")
     private employerDaoImpl emplDao;
     
+    @Autowired
+    @Qualifier("rep")
+    private departmentDaoImpl departDao;
+    
     @RequestMapping(value = "list/emplList" , method = RequestMethod.GET)
 	public ModelAndView handleRequest() throws Exception {
 		List<Employer> listEmpls = emplDao.list();
@@ -41,17 +46,20 @@ public class controllerEmployer {
         
            @RequestMapping(value = "list/editEmpl", method = RequestMethod.GET)
 	public ModelAndView editUser(int id) {
-		
+		List<Department> departs = departDao.list();
 		Employer user = emplDao.get(id);
 		ModelAndView model = new ModelAndView("EmplForm");
 		model.addObject("user", user);
+                model.addObject("depart",departs);
 		return model;		
 	}
         
       @RequestMapping(value = "list/newemplo", method = RequestMethod.GET)
 	public ModelAndView newEmpl() {
+            List<Department> departs = departDao.list();
 		ModelAndView model = new ModelAndView("EmplForm");
 		model.addObject("user", new Employer());
+                model.addObject("depart",departs);
 		return model;		
 	}
         
