@@ -18,11 +18,13 @@
         <div align="center">
             
         	<table border="1">
-	        	<th>id</th><th>Project</th><th>Edit</th><th>Delete</th>
+	        	<th>id</th><th>Project</th><th></th><th>Edit</th><th>Delete</th>
 			<c:forEach var="project" items="${listProject}" varStatus="status">
                             <tr>
                                 <td>${project.idProgect}</td>
                                 <td>${project.name}</td>
+                                <td>${project.datestart}</td>
+                              
                                 <td>
                                     <a href="editpr?id=${project.idProgect}">Edit</a>
                                 </td>  

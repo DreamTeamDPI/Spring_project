@@ -50,6 +50,7 @@ public class controller_project {
         
      @RequestMapping(value = "list/savepr", method = RequestMethod.POST)
 	public ModelAndView saveTask(@ModelAttribute Project empl) {
+            
 		projectDao.save(empl);
 		return new ModelAndView("redirect:/list/projectList");
 	}

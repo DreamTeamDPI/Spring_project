@@ -20,6 +20,13 @@
 				<td>name</td>
 				<td><form:input path="name"/></td>
 			</tr>
+                        <tr>   
+				<td>Дата начала</td>
+				<td><form:input 
+                                            placeholder="yyyy MM dd"
+                                        
+                                            path="datestart"/></td>
+			</tr>
 	
                       		
 			<tr>
