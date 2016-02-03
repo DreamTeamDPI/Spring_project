@@ -14,7 +14,7 @@
 			<form:form action="savepr" method="post" modelAttribute="pr">
                         <tr>
                             <td>id</td>
-                            <td><form:input path="idProgect"/></td>
+                            <td><form:input type ="hidden" path="idProgect"/></td>
                         </tr>
 			<tr>   
 				<td>name</td>
