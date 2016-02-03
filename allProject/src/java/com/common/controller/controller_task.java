@@ -6,9 +6,11 @@
 package com.common.controller;
 
 
+import com.common.DAO.Impl.projectDaoImpl;
 import com.common.DAO.Impl.taskDaoImpl;
 import com.common.model.Department;
 import com.common.model.Employer;
+import com.common.model.Project;
 import com.common.model.Task;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,10 @@ public class controller_task {
     @Qualifier("task")
     private taskDaoImpl taskDao;
     
+    @Autowired
+    @Qualifier("project")
+    private projectDaoImpl projectDao;
+    
     @RequestMapping(value = "list/taskList" , method = RequestMethod.GET)
 	public ModelAndView handleRequest() throws Exception {
 		List<Task> listTask = taskDao.list();
@@ -42,8 +48,10 @@ public class controller_task {
     @RequestMapping(value = "list/edittask", method = RequestMethod.GET)
 	public ModelAndView editTask(int id) {
 		Task task = taskDao.get(id);
-		ModelAndView model = new ModelAndView("TaskForm");
+                List<Project> projects = projectDao.list();
+                ModelAndView model = new ModelAndView("TaskForm");
 		model.addObject("task", task);
+                model.addObject("project",projects);
 		return model;		
 	}
     
@@ -58,7 +66,10 @@ public class controller_task {
     @RequestMapping(value = "list/newtask", method = RequestMethod.GET)
 	public ModelAndView newTask() {
 		ModelAndView model = new ModelAndView("TaskForm");
-		model.addObject("task", new Task());
+		
+                List<Project> projects = projectDao.list();
+                model.addObject("project",projects);
+                model.addObject("task", new Task());
 		return model;		
 	}
         

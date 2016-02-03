@@ -15,15 +15,15 @@
                 
 		<table>
 			
-                    <tr>
-                        <td>id</td>
-                        <td><form:input path="idTask"/></td>
-                    </tr>
+                        <tr>
+                            <td>id</td>
+                            <td><form:input path="idTask"/></td>
+                        </tr>
 			<tr>   
 				<td>name</td>
 				<td><form:input path="discribe"/></td>
 			</tr>
-	
+
                         <tr>
                             <td>
                                 Выбор проекта
@@ -33,12 +33,9 @@
                                         <form:options items="${project}" itemValue="idProgect" itemLabel="name"/>
                                  </form:select>
                             </td>
-                        </tr>
-                        
-<!--                        <tr>
-				<td>projectId</td>
-				<td><form:input path="projectidProgect.idProgect"/></td>
-			</tr>-->
+<!--				<td>Проект</td>
+				<td><form:input path="projectidProgect.idProgect"/></td>-->
+			</tr>
 			
 			<tr>
 				<td colspan="2" align="center">

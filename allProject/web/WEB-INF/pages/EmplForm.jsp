@@ -49,9 +49,19 @@
 				<td><form:input path="typesalary"/></td>
 			</tr>
                         <tr>
+                            <td>
+                                Выбор проекта
+                            </td>
+                            <td>
+                                <form:select path="departmentidDepartment.idDepartment" >
+                                        <form:options items="${depart}" itemValue="idDepartment" itemLabel="name"/>
+                                 </form:select>
+                            </td>
+                        </tr>
+<!--                        <tr>
 				<td>departmentidDepartment</td>
 				<td><form:input path="departmentidDepartment.idDepartment" /></td>
-			</tr>
+			</tr>-->
 			
 			<tr>
 				<td colspan="2" align="center">
